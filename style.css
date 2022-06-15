@@ -1,44 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;500&display=swap');
-body
-{
-    margin:0%;
+
+body {
+    margin: 0%;
     background-color: rgb(255, 248, 147);
 }
-::placeholder
-{
+
+::placeholder {
     color: white !important;
 }
-.bpm
-{
-    width: 200px; height: 100px;
+
+.bpm {
+    width: 200px;
+    height: 100px;
     border-radius: 30px;
     border: 5px solid black;
-    text-align: center; font-size: 50px;
+    text-align: center;
+    font-size: 50px;
     margin-right: 10px;
     font-family: 'Readex Pro', sans-serif;
     background-color: rgb(255, 214, 79);
     color: white !important;
 }
-.bpm2
-{
+
+.bpm2 {
     font-size: 80px;
     font-family: 'Readex Pro', sans-serif;
     color: black;
 }
-.time
-{
-    width: 200px; height: 100px;
+
+.time {
+    width: 200px;
+    height: 100px;
     border-radius: 30px;
     border: 5px solid black;
-    text-align: center; font-size: 50px;
+    text-align: center;
+    font-size: 50px;
     margin-left: 10px;
     font-family: 'Readex Pro', sans-serif;
     background-color: rgb(255, 214, 79);
     color: white !important;
 }
-.start
-{
+
+.bpmPoly {
+    width: 200px;
+    height: 100px;
+    border-radius: 30px;
+    border: 5px solid black;
+    text-align: center;
+    font-size: 50px;
+
+    font-family: 'Readex Pro', sans-serif;
+    background-color: rgb(255, 214, 79);
+    color: white !important;
+    display: none;
+}
+
+.timeSig {
+    width: 200px;
+    height: 100px;
+    border-radius: 30px;
+    border: 5px solid black;
+    text-align: center;
+    font-size: 50px;
+    margin-left: 10px;
+    font-family: 'Readex Pro', sans-serif;
+    background-color: rgb(255, 214, 79);
+    color: white !important;
+    display: none;
+}
+
+.doispontos {
+    font-family: 'Readex Pro', sans-serif;
+    display: none;
+    font-size: 100px;
+    margin-top: -23px;
+    margin-left: 8px;
+}
+
+.start {
     border-top: 40px solid transparent;
     border-left: 70px solid black;
     border-bottom: 40px solid transparent;
@@ -46,119 +86,125 @@ body
     margin-left: 10px;
     background-color: transparent;
 }
-.start:hover
-{
+
+.start:hover {
     cursor: pointer;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
-.title
-{
+
+.title {
     font-family: 'Readex Pro', sans-serif;
-    margin-top: 80px; margin-bottom: 220px;
+    margin-top: 80px;
+    margin-bottom: 220px;
     height: 50px;
     font-size: 80px;
 }
-.options
-{
+
+.options {
     font-size: 50px;
     background-color: transparent;
     border: none;
     margin-top: 5px;
     position: absolute;
-    right: 0px; top: 0px;
+    right: 0px;
+    top: 0px;
 }
-.pause
-{
+
+.pause {
     background-color: transparent;
     border: none;
     display: none;
 }
-.pause:hover
-{
+
+.pause:hover {
     cursor: pointer;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
-.options:hover
-{
+
+.options:hover {
     cursor: pointer;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
-.optionsContainer
-{
+
+.optionsContainer {
     display: block;
 }
 
 /*SWITCH*/
 
-.switch
-{
+.switch {
     position: relative;
     display: inline-block;
-    width: 60px; height: 34px;
+    width: 60px;
+    height: 34px;
     margin-left: 10px;
 }
-.slider
-{
+
+.slider {
     position: absolute;
     cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: #ccc;
     transition: .4s;
 }
-.slider:before
-{
+
+.slider:before {
     position: absolute;
     content: "";
-    height: 26px; width: 26px;
+    height: 26px;
+    width: 26px;
     left: 4px;
     bottom: 4px;
     background-color: white;
     transition: .4s;
 }
-input:checked + .slider
-{
+
+input:checked+.slider {
     background-color: rgb(255, 214, 79);
 }
-input:checked + .slider:before
-{
+
+input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
-.slider.round
-{
+
+.slider.round {
     border-radius: 34px;
 }
-.slider.round:before
-{
+
+.slider.round:before {
     border-radius: 50%;
 }
 
 /*SLIDE*/
 
-.slide
-{
+.slide {
     background-color: rgb(255, 214, 79);
     margin-top: 7px;
 }
-input[type='range']
-{
+
+input[type='range'] {
     -webkit-appearance: none;
     background-color: rgb(255, 214, 79);
     border-radius: 10px;
     height: 15px;
 }
-input[type='range']::-webkit-slider-thumb
-{
+
+input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none;
     background-color: rgb(0, 0, 0);
-    height: 10px; width: 10px;
+    height: 10px;
+    width: 10px;
     cursor: pointer;
     box-shadow: -2px 0 0 2px black;
     border-radius: 10px;
@@ -166,28 +212,28 @@ input[type='range']::-webkit-slider-thumb
 
 /*DIVS*/
 
-.buttons
-{
+.buttons {
     margin-top: 100px;
     border-style: solid;
     border-color: transparent;
 }
-.extra
-{
+
+.extra {
     margin-top: 20px;
     display: none;
 }
-.extra2
-{
+
+.extra2 {
     display: none;
-    height: 100px; width: 200px;
+    height: 100px;
+    width: 200px;
 }
-.child
-{
+
+.child {
     flex: 1;
 }
-.container
-{
+
+.container {
     display: flex;
     position: absolute;
     top: 50%;
@@ -195,8 +241,8 @@ input[type='range']::-webkit-slider-thumb
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-.bigContainer
-{
+
+.bigContainer {
     position: relative;
     border-style: solid;
     border-color: transparent;
@@ -204,56 +250,65 @@ input[type='range']::-webkit-slider-thumb
 
 /*XXXXX*/
 
-.options2
-{
-	height: 100vh;
-	width: 0;
-	color: black;
-	text-decoration: none;
-	background-color: rgb(255, 214, 79);
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	overflow-x: hidden;
-	font-family: 'Readex Pro', sans-serif;
-	transition: color, top 0.3s;
-	justify-content: space-between;
-	transition: width 0.5s;
+.options2 {
+    height: 100vh;
+    width: 0;
+    color: black;
+    text-decoration: none;
+    background-color: rgb(255, 214, 79);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow-x: hidden;
+    font-family: 'Readex Pro', sans-serif;
+    transition: color, top 0.3s;
+    justify-content: space-between;
+    transition: width 0.5s;
 }
-.options2 a
-{
-	text-decoration: none;
-	font-size: 25px;
-	margin: 20px 0px;
-	padding: 15px 50px;
-	text-align: center;
-	color: black;
-	display: block;
-	transition: color 0.3s, background-color 0.3s;
+
+.options2 a {
+    text-decoration: none;
+    font-size: 25px;
+    margin: 20px 0px;
+    padding: 15px 50px;
+    text-align: center;
+    color: black;
+    display: block;
+    transition: color 0.3s, background-color 0.3s;
 }
-.options2 a:hover
-{
+
+.options2 a:hover {
     cursor: pointer;
 }
-@media(hover: hover) and (pointer: fine)
-{
-	.options2 a:hover
-    {
-		color: black;
-		background-color: white;
-	}
+
+@media(hover: hover) and (pointer: fine) {
+    .options2 a:hover {
+        color: black;
+        background-color: white;
+    }
 }
-.itens
-{
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 100%;
-	opacity: 0;
-	margin-left: -100px;
-	transition: opacity 0.5s, margin 0.5s;
+
+.itens {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    opacity: 0;
+    margin-left: -100px;
+    transition: opacity 0.5s, margin 0.5s;
 }
-.maxContainer
+
+.version {
+    position: absolute;
+    bottom: 2%; left: 7%;
+}
+
+.maxContainer {
+    transition: margin-left 0.5s, opacity 0.5s;
+}
+
+/*div
 {
-	transition: margin-left 0.5s, opacity 0.5s;
+    border: black;
+    border: solid;
 }
