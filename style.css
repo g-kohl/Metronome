@@ -306,9 +306,3 @@ input[type='range']::-webkit-slider-thumb {
 .maxContainer {
     transition: margin-left 0.5s, opacity 0.5s;
 }
-
-/*div
-{
-    border: black;
-    border: solid;
-}

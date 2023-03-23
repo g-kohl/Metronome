@@ -32,7 +32,6 @@ function start() {
         if (document.getElementById("switch").checked == false) {
             if (controlInfinity == 0) {
                 if (controlSlider == 0) {
-                    console.log("if1")
                     bpm = document.getElementById("bpm").value;
                     stopwatch = document.getElementById("timer").value;
                     bpm2 = 60000 / bpm
@@ -45,7 +44,6 @@ function start() {
                     totalTime = hour + minute + second
                 }
                 else {
-                    console.log("if2")
                     bpm = document.getElementById("slide").value;
                     stopwatch = document.getElementById("timer").value;
                     bpm2 = 60000 / bpm
@@ -60,14 +58,12 @@ function start() {
             }
             else {
                 if (controlSlider == 0) {
-                    console.log("if3")
                     bpm = document.getElementById("bpm").value;
                     stopwatch = document.getElementById("timer").value;
                     bpm2 = 60000 / bpm
                     interval = setInterval(tocar, bpm2);
                 }
                 else {
-                    console.log("if4")
                     bpm = document.getElementById("slide").value;
                     stopwatch = document.getElementById("timer").value;
                     bpm2 = 60000 / bpm
@@ -77,7 +73,6 @@ function start() {
         }
         if (document.getElementById("switch").checked == true) {
             if (controlSlider == 0) {
-                console.log("if5")
                 bpm = document.getElementById("bpm").value;
                 stopwatch = (document.getElementById("timer").value) * 60;
                 bpm2 = 60000 / bpm
@@ -90,7 +85,6 @@ function start() {
                 totalTime = hour + minute + second
             }
             else {
-                console.log("if6")
                 bpm = document.getElementById("slide").value;
                 stopwatch = (document.getElementById("timer").value) * 60;
                 bpm2 = 60000 / bpm
@@ -105,7 +99,6 @@ function start() {
         }
     }
     else {
-        console.log("if7")
         bpm = document.getElementById("bpmPoly").value;
         stopwatch = document.getElementById("timer").value;
         bpm2 = 60000 / bpm
@@ -135,6 +128,11 @@ function tocar() {
 
         if ((totalTime2 <= (parseInt(totalTime) + parseInt(stopwatch))) && controlPause == 0) {
             beep.play();
+        }
+        else {
+            document.getElementById("start").style.display = "block";
+            document.getElementById("pause").style.display = "none";
+            controlPause = 1;
         }
     }
     else {
@@ -174,6 +172,24 @@ function closeConfig() {
         document.getElementById("itens").style.marginLeft = "-100px"
         open = false;
     }
+}
+
+function english() {
+    document.title = "Online Metronome"
+    document.getElementById("restaurarPadroes").innerHTML = "Restore Configurations"
+    document.getElementById("segundosMinutos").innerHTML = "Seconds or Minutes"
+    document.getElementById("tempoInfinito").innerHTML = "Infinite Time"
+    document.getElementById("polirritmia").innerHTML = "Polyrhythm"
+    document.getElementById("title").innerHTML = "METRONOME"
+    document.getElementById("timer").title = "Seconds"
+    document.getElementById("timer").placeholder = "Time"
+    document.getElementById("spanSegundoMinuto").title = "Seconds/Minutes"
+    document.getElementById("start").title = "Play"
+    document.getElementById("pause").title = "Stop"
+    document.getElementById("bpm").title = "Beats per Minute"
+    document.getElementById("bpmPoly").title = "Beats per Minute"
+    document.getElementById("timeSig1").title = "Subdivision 1"
+    document.getElementById("timeSig2").title = "Subdivision 2"
 }
 
 function restore() {

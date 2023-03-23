@@ -15,20 +15,21 @@
         </div>
         <div id="options2" class="options2">
             <div class="itens" id="itens">
-                <a onclick="restore()">Restaurar Padrões</a>
+                <a id="restaurarPadroes" onclick="restore()">Restaurar Padrões</a>
                 <a onclick="openSlider()">BPM Slider</a>
-                <a onclick="secondminute()">Segundos ou Minutos</a>
-                <a onclick="infinity()">Tempo Infinito</a>
-                <a onclick="openPolyrhythm()">Polirritmia</a>
+                <a id="segundosMinutos" onclick="secondminute()">Segundos ou Minutos</a>
+                <a id="tempoInfinito" onclick="infinity()">Tempo Infinito</a>
+                <a id="polirritmia" onclick="openPolyrhythm()">Polirritmia</a>
+                <a onclick="english()">English Version</a>
             </div>
             <div class="version">
-                <text>Metronome 1.1</text>
+                <text>Metronome 1.2</text>
             </div>
         </div>
         <div id="maxContainer" class="maxContainer" onclick="closeConfig()">
             <center>
                 <div class="title">
-                    <text>METRÔNOMO</text>
+                    <text id="title">METRÔNOMO</text>
                 </div>
                 <div class="bigContainer">
                     <div class="container">
@@ -46,7 +47,7 @@
                             <div id="extra1" class="extra">
                                 <label class="switch">
                                     <input id="switch" type="checkbox">
-                                    <span class="slider round" title="Segundos/Minutos"></span>
+                                    <span id="spanSegundoMinuto" class="slider round" title="Segundos/Minutos"></span>
                                 </label>
                             </div>
                         </div>
@@ -68,7 +69,7 @@
                 </div>
                 <div class="buttons" onclick="closeConfig()">
                     <button id="start" class="start" onclick="start()" title="Tocar"></button>
-                    <button id="pause" class="pause" onclick="pause()"><i style="font-size: 70px" class="fa">&#xf04c;</i></button>
+                    <button id="pause" class="pause" onclick="pause()" title="Pausar"><i style="font-size: 70px" class="fa">&#xf04c;</i></button>
                 </div>
             </center>
         </div>
