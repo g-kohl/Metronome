@@ -22,6 +22,7 @@ let minute
 let second
 let totalTime
 
+//functions
 function start() {
     document.getElementById("start").style.display = "none";
     document.getElementById("pause").style.display = "block";
