@@ -10,7 +10,7 @@ body {
     color: white !important;
 }
 
-.bpm {
+#bpm-input {
     width: 200px;
     height: 100px;
     border-radius: 30px;
@@ -23,13 +23,13 @@ body {
     color: white !important;
 }
 
-.bpm2 {
+#bpm-slider-text {
     font-size: 80px;
     font-family: 'Readex Pro', sans-serif;
     color: black;
 }
 
-.time {
+#time-input {
     width: 200px;
     height: 100px;
     border-radius: 30px;
@@ -42,7 +42,7 @@ body {
     color: white !important;
 }
 
-.bpmPoly {
+#polyrhythm-bpm-input {
     width: 200px;
     height: 100px;
     border-radius: 30px;
@@ -56,7 +56,7 @@ body {
     display: none;
 }
 
-.timeSig {
+.rhythm-input {
     width: 200px;
     height: 100px;
     border-radius: 30px;
@@ -70,7 +70,7 @@ body {
     display: none;
 }
 
-.doispontos {
+#colon {
     font-family: 'Readex Pro', sans-serif;
     display: none;
     font-size: 100px;
@@ -78,7 +78,7 @@ body {
     margin-left: 8px;
 }
 
-.start {
+#start-button {
     border-top: 40px solid transparent;
     border-left: 70px solid black;
     border-bottom: 40px solid transparent;
@@ -87,14 +87,14 @@ body {
     background-color: transparent;
 }
 
-.start:hover {
+#start-button:hover {
     cursor: pointer;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
 
-.title {
+#title-container {
     font-family: 'Readex Pro', sans-serif;
     margin-top: 80px;
     margin-bottom: 220px;
@@ -102,7 +102,7 @@ body {
     font-size: 80px;
 }
 
-.options {
+#open-configurations-button {
     font-size: 50px;
     background-color: transparent;
     border: none;
@@ -112,33 +112,29 @@ body {
     top: 0px;
 }
 
-.pause {
+#pause-button {
     background-color: transparent;
     border: none;
     display: none;
 }
 
-.pause:hover {
+#pause-button:hover {
     cursor: pointer;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
 
-.options:hover {
+#open-configurations-button:hover {
     cursor: pointer;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
-}
-
-.optionsContainer {
-    display: block;
 }
 
 /*SWITCH*/
 
-.switch {
+#time-switch-label {
     position: relative;
     display: inline-block;
     width: 60px;
@@ -146,7 +142,7 @@ body {
     margin-left: 10px;
 }
 
-.slider {
+.span {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -157,7 +153,7 @@ body {
     transition: .4s;
 }
 
-.slider:before {
+.span:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -168,27 +164,27 @@ body {
     transition: .4s;
 }
 
-input:checked+.slider {
+input:checked+.span {
     background-color: rgb(255, 214, 79);
 }
 
-input:checked+.slider:before {
+input:checked+.span:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
 
-.slider.round {
+.span.round {
     border-radius: 34px;
 }
 
-.slider.round:before {
+.span.round:before {
     border-radius: 50%;
 }
 
 /*SLIDE*/
 
-.slide {
+#bpm-slider {
     background-color: rgb(255, 214, 79);
     margin-top: 7px;
 }
@@ -212,21 +208,26 @@ input[type='range']::-webkit-slider-thumb {
 
 /*DIVS*/
 
-.buttons {
+#buttons-container {
     margin-top: 100px;
     border-style: solid;
     border-color: transparent;
 }
 
-.extra {
+#time-switch-container {
     margin-top: 20px;
     display: none;
 }
 
-.extra2 {
+#bpm-slider-text-container {
     display: none;
     height: 100px;
     width: 200px;
+}
+
+#bpm-slider-container {
+    margin-top: 20px;
+    display: none;
 }
 
 .child {
@@ -242,7 +243,7 @@ input[type='range']::-webkit-slider-thumb {
     transform: translate(-50%, -50%);
 }
 
-.bigContainer {
+#interface-container {
     position: relative;
     border-style: solid;
     border-color: transparent;
@@ -250,7 +251,7 @@ input[type='range']::-webkit-slider-thumb {
 
 /*XXXXX*/
 
-.options2 {
+#configurations-container {
     height: 100vh;
     width: 0;
     color: black;
@@ -266,7 +267,7 @@ input[type='range']::-webkit-slider-thumb {
     transition: width 0.5s;
 }
 
-.options2 a {
+#configurations-container a {
     text-decoration: none;
     font-size: 25px;
     margin: 20px 0px;
@@ -277,18 +278,18 @@ input[type='range']::-webkit-slider-thumb {
     transition: color 0.3s, background-color 0.3s;
 }
 
-.options2 a:hover {
+#configurations-container a:hover {
     cursor: pointer;
 }
 
 @media(hover: hover) and (pointer: fine) {
-    .options2 a:hover {
+    #configurations-container a:hover {
         color: black;
         background-color: white;
     }
 }
 
-.itens {
+#items {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -298,11 +299,11 @@ input[type='range']::-webkit-slider-thumb {
     transition: opacity 0.5s, margin 0.5s;
 }
 
-.version {
+#version {
     position: absolute;
     bottom: 2%; left: 7%;
 }
 
-.maxContainer {
+#maxContainer {
     transition: margin-left 0.5s, opacity 0.5s;
 }

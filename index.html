@@ -1,8 +1,7 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    </meta>
+    <meta charset="UTF-8"></meta>
     <title>Metrônomo Online</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -10,66 +9,66 @@
 
 <body>
     <div>
-        <div class="optionsContainer">
-            <button class="options" onclick="openConfig()"><i class='fa fa-gear'></i></button>
+        <div>
+            <button id="open-configurations-button" onclick="openConfigurations()"><i class='fa fa-gear'></i></button>
         </div>
-        <div id="options2" class="options2">
-            <div class="itens" id="itens">
-                <a id="restaurarPadroes" onclick="restore()">Restaurar Padrões</a>
-                <a onclick="openSlider()">BPM Slider</a>
-                <a id="segundosMinutos" onclick="secondminute()">Segundos ou Minutos</a>
-                <a id="tempoInfinito" onclick="infinity()">Tempo Infinito</a>
-                <a id="polirritmia" onclick="openPolyrhythm()">Polirritmia</a>
+        <div id="configurations-container">
+            <div id="items">
+                <a id="restore-defaults-button" onclick="restoreDefaults()">Restaurar Padrões</a>
+                <a onclick="slider()">BPM Slider</a>
+                <a id="seconds-or-minutes-button" onclick="secondsOrMinutes()">Segundos ou Minutos</a>
+                <a id="infinity-time-button" onclick="infinityTime()">Tempo Infinito</a>
+                <a id="polyrhythm-button" onclick="polyrhythm()">Polirritmia</a>
                 <a onclick="english()">English Version</a>
             </div>
-            <div class="version">
+            <div id="version">
                 <text>Metronome 1.2</text>
             </div>
         </div>
-        <div id="maxContainer" class="maxContainer" onclick="closeConfig()">
+        <div id="main-container" onclick="closeConfigurations()">
             <center>
-                <div class="title">
+                <div id="title-container">
                     <text id="title">METRÔNOMO</text>
                 </div>
-                <div class="bigContainer">
+                <div id="interface-container">
                     <div class="container">
                         <div class="child">
-                            <input id="bpm" class="bpm" placeholder="BPM" title="Batidas por Minuto" onkeypress="clear(event.key)"/>
-                            <div id="extra2" class="extra2">
-                                <text id="bpm2" class="bpm2">150</text>
+                            <input id="bpm-input" placeholder="BPM" title="Batidas por Minuto" onkeypress="clear(event.key)"/>
+                            <div id="bpm-slider-text-container">
+                                <text id="bpm-slider-text">150</text>
                             </div>
-                            <div id="extra" class="extra">
-                                <input type="range" min="1" max="300" value="150" id="slide" class="slide" oninput="slide()" />
+                            <div id="bpm-slider-container">
+                                <input type="range" min="1" max="300" value="150" id="bpm-slider" oninput="slide()"/>
                             </div>
                         </div>
-                        <div id="divTimer" class="child">
-                            <input id="timer" class="time" placeholder="Tempo" title="Segundos" />
-                            <div id="extra1" class="extra">
-                                <label class="switch">
-                                    <input id="switch" type="checkbox">
-                                    <span id="spanSegundoMinuto" class="slider round" title="Segundos/Minutos"></span>
+                        <div class="child">
+                            <input id="time-input" placeholder="Tempo" title="Segundos"/>
+                            <div id="time-switch-container">
+                                <label id="time-switch-label">
+                                    <input id="time-switch" type="checkbox">
+                                    <span id="seconds-or-minutes-span" class="span round" title="Segundos/Minutos"></span>
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="container">
                         <div class="child">
-                            <input id="bpmPoly" class="bpmPoly" placeholder="BPM" title="Batidas por Minuto" />
+                            <input id="polyrhythm-bpm-input" placeholder="BPM" title="Batidas por Minuto"/>
                         </div>
                         <div class="child">
-                            <input id="timeSig1" class="timeSig" placeholder="Sub 1" title="Subdivisão 1" />
+                            <input id="first-rhythm-input" class="rhythm-input" placeholder="Rtm 1" title="Primeiro Ritmo"/>
                         </div>
                         <div class="child">
-                            <text id="doispontos" class="doispontos">:</text>
+                            <text id="colon">:</text>
                         </div>
                         <div class="child">
-                            <input id="timeSig2" class="timeSig" placeholder="Sub 2" title="Subdivisão 2" />
+                            <input id="second-rhythm-input" class="rhythm-input" placeholder="Rtm 2" title="Segundo Ritmo"/>
                         </div>
                     </div>
                 </div>
-                <div class="buttons" onclick="closeConfig()">
-                    <button id="start" class="start" onclick="start()" title="Tocar"></button>
-                    <button id="pause" class="pause" onclick="pause()" title="Pausar"><i style="font-size: 70px" class="fa">&#xf04c;</i></button>
+                <div id="buttons-container" onclick="closeConfigurations()">
+                    <button id="start-button" onclick="start()" title="Tocar"></button>
+                    <button id="pause-button" onclick="pause()" title="Pausar"><i style="font-size: 70px" class="fa">&#xf04c;</i></button>
                 </div>
             </center>
         </div>

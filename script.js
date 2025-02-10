@@ -24,17 +24,17 @@ let totalTime
 
 //functions
 function start() {
-    document.getElementById("start").style.display = "none";
-    document.getElementById("pause").style.display = "block";
+    document.getElementById("start-button").style.display = "none";
+    document.getElementById("pause-button").style.display = "block";
     controlPause = 0;
     clearInterval(interval);
     clearInterval(interval2);
     if (controlBPM == 0) {
-        if (document.getElementById("switch").checked == false) {
+        if (document.getElementById("time-switch").checked == false) {
             if (controlInfinity == 0) {
                 if (controlSlider == 0) {
-                    bpm = document.getElementById("bpm").value;
-                    stopwatch = document.getElementById("timer").value;
+                    bpm = document.getElementById("bpm-input").value;
+                    stopwatch = document.getElementById("time-input").value;
                     bpm2 = 60000 / bpm
                     interval = setInterval(tocar, bpm2);
 
@@ -45,8 +45,8 @@ function start() {
                     totalTime = hour + minute + second
                 }
                 else {
-                    bpm = document.getElementById("slide").value;
-                    stopwatch = document.getElementById("timer").value;
+                    bpm = document.getElementById("bpm-slider").value;
+                    stopwatch = document.getElementById("time-input").value;
                     bpm2 = 60000 / bpm
                     interval = setInterval(tocar, bpm2);
 
@@ -59,23 +59,23 @@ function start() {
             }
             else {
                 if (controlSlider == 0) {
-                    bpm = document.getElementById("bpm").value;
-                    stopwatch = document.getElementById("timer").value;
+                    bpm = document.getElementById("bpm-input").value;
+                    stopwatch = document.getElementById("time-input").value;
                     bpm2 = 60000 / bpm
                     interval = setInterval(tocar, bpm2);
                 }
                 else {
-                    bpm = document.getElementById("slide").value;
-                    stopwatch = document.getElementById("timer").value;
+                    bpm = document.getElementById("bpm-slider").value;
+                    stopwatch = document.getElementById("time-input").value;
                     bpm2 = 60000 / bpm
                     interval = setInterval(tocar, bpm2);
                 }
             }
         }
-        if (document.getElementById("switch").checked == true) {
+        if (document.getElementById("time-switch").checked == true) {
             if (controlSlider == 0) {
-                bpm = document.getElementById("bpm").value;
-                stopwatch = (document.getElementById("timer").value) * 60;
+                bpm = document.getElementById("bpm-input").value;
+                stopwatch = (document.getElementById("time-input").value) * 60;
                 bpm2 = 60000 / bpm
                 interval = setInterval(tocar, bpm2);
 
@@ -86,8 +86,8 @@ function start() {
                 totalTime = hour + minute + second
             }
             else {
-                bpm = document.getElementById("slide").value;
-                stopwatch = (document.getElementById("timer").value) * 60;
+                bpm = document.getElementById("bpm-slider").value;
+                stopwatch = (document.getElementById("time-input").value) * 60;
                 bpm2 = 60000 / bpm
                 interval = setInterval(tocar, bpm2);
 
@@ -100,11 +100,11 @@ function start() {
         }
     }
     else {
-        bpm = document.getElementById("bpmPoly").value;
-        stopwatch = document.getElementById("timer").value;
+        bpm = document.getElementById("polyrhythm-bpm-input").value;
+        stopwatch = document.getElementById("time-input").value;
         bpm2 = 60000 / bpm
-        timeSig1 = document.getElementById("timeSig1").value;
-        timeSig2 = document.getElementById("timeSig2").value;
+        timeSig1 = document.getElementById("first-rhythm-input").value;
+        timeSig2 = document.getElementById("second-rhythm-input").value;
         bpmPoly = bpm2 / timeSig1;
         bpmPoly2 = bpm2 / timeSig2;
         console.log(bpmPoly + " " + bpmPoly2)
@@ -131,8 +131,8 @@ function tocar() {
             beep.play();
         }
         else {
-            document.getElementById("start").style.display = "block";
-            document.getElementById("pause").style.display = "none";
+            document.getElementById("start-button").style.display = "block";
+            document.getElementById("pause-button").style.display = "none";
             controlPause = 1;
         }
     }
@@ -144,151 +144,151 @@ function tocar() {
 }
 
 function pause() {
-    document.getElementById("start").style.display = "block";
-    document.getElementById("pause").style.display = "none";
+    document.getElementById("start-button").style.display = "block";
+    document.getElementById("pause-button").style.display = "none";
     controlPause = 1;
 }
 
 function slide() {
-    document.getElementById("bpm2").innerHTML = document.getElementById("slide").value;
+    document.getElementById("bpm-slider-text").innerHTML = document.getElementById("bpm-slider").value;
 }
 
-function openConfig() {
+function openConfigurations() {
     if (!open) {
-        document.getElementById("options2").style.width = "250px";
-        document.getElementById("maxContainer").style.marginLeft = "250px";
+        document.getElementById("configurations-container").style.width = "250px";
+        document.getElementById("main-container").style.marginLeft = "250px";
         setTimeout(function () {
-            document.getElementById("itens").style.opacity = "1"
-            document.getElementById("itens").style.marginLeft = "0"
+            document.getElementById("items").style.opacity = "1"
+            document.getElementById("items").style.marginLeft = "0"
         }, 250)
         open = true;
     }
 }
 
-function closeConfig() {
+function closeConfigurations() {
     if (open) {
-        document.getElementById("options2").style.width = "0px";
-        document.getElementById("maxContainer").style.marginLeft = "0";
-        document.getElementById("itens").style.opacity = "0"
-        document.getElementById("itens").style.marginLeft = "-100px"
+        document.getElementById("configurations-container").style.width = "0px";
+        document.getElementById("main-container").style.marginLeft = "0";
+        document.getElementById("items").style.opacity = "0"
+        document.getElementById("items").style.marginLeft = "-100px"
         open = false;
     }
 }
 
 function english() {
     document.title = "Online Metronome"
-    document.getElementById("restaurarPadroes").innerHTML = "Restore Configurations"
-    document.getElementById("segundosMinutos").innerHTML = "Seconds or Minutes"
-    document.getElementById("tempoInfinito").innerHTML = "Infinite Time"
-    document.getElementById("polirritmia").innerHTML = "Polyrhythm"
+    document.getElementById("restore-defaults-button").innerHTML = "Restore Configurations"
+    document.getElementById("seconds-or-minutes-button").innerHTML = "Seconds or Minutes"
+    document.getElementById("infinity-time-button").innerHTML = "Infinite Time"
+    document.getElementById("polyrhythm-button").innerHTML = "Polyrhythm"
     document.getElementById("title").innerHTML = "METRONOME"
-    document.getElementById("timer").title = "Seconds"
-    document.getElementById("timer").placeholder = "Time"
-    document.getElementById("spanSegundoMinuto").title = "Seconds/Minutes"
-    document.getElementById("start").title = "Play"
-    document.getElementById("pause").title = "Stop"
-    document.getElementById("bpm").title = "Beats per Minute"
-    document.getElementById("bpmPoly").title = "Beats per Minute"
-    document.getElementById("timeSig1").title = "Subdivision 1"
-    document.getElementById("timeSig2").title = "Subdivision 2"
+    document.getElementById("time-input").title = "Seconds"
+    document.getElementById("time-input").placeholder = "Time"
+    document.getElementById("seconds-or-minutes-span").title = "Seconds/Minutes"
+    document.getElementById("start-button").title = "Play"
+    document.getElementById("pause-button").title = "Stop"
+    document.getElementById("bpm-input").title = "Beats per Minute"
+    document.getElementById("polyrhythm-bpm-input").title = "Beats per Minute"
+    document.getElementById("first-rhythm-input").title = "Subdivision 1"
+    document.getElementById("second-rhythm-input").title = "Subdivision 2"
 }
 
-function restore() {
-    document.getElementById("bpm").style.display = "block";
-    document.getElementById("extra2").style.display = "none";
-    document.getElementById("extra").style.display = "none";
-    document.getElementById("timer").style.display = "block";
-    document.getElementById("extra1").style.display = "none";
-    document.getElementById("bpmPoly").style.display = "none";
-    document.getElementById("timeSig1").style.display = "none";
-    document.getElementById("timeSig2").style.display = "none";
-    document.getElementById("doispontos").style.display = "none";
+function restoreDefaults() {
+    document.getElementById("bpm-input").style.display = "block";
+    document.getElementById("bpm-slider-text-container").style.display = "none";
+    document.getElementById("bpm-slider-container").style.display = "none";
+    document.getElementById("time-input").style.display = "block";
+    document.getElementById("time-switch-container").style.display = "none";
+    document.getElementById("polyrhythm-bpm-input").style.display = "none";
+    document.getElementById("first-rhythm-input").style.display = "none";
+    document.getElementById("second-rhythm-input").style.display = "none";
+    document.getElementById("colon").style.display = "none";
     controlBPM = 0;
     controlSlider = 0;
     controlSwitch = 0;
     controlInfinity = 0;
 }
 
-function openSlider() {
-    document.getElementById("bpm").style.display = "none";
-    document.getElementById("extra2").style.display = "block";
-    document.getElementById("extra").style.display = "block";
+function slider() {
+    document.getElementById("bpm-input").style.display = "none";
+    document.getElementById("bpm-slider-text-container").style.display = "block";
+    document.getElementById("bpm-slider-container").style.display = "block";
     if (controlSwitch == 1) {
-        document.getElementById("timer").style.display = "block";
-        document.getElementById("extra1").style.display = "block";
+        document.getElementById("time-input").style.display = "block";
+        document.getElementById("time-switch-container").style.display = "block";
     }
     else {
         if (controlInfinity == 1) {
-            document.getElementById("timer").style.display = "none";
-            document.getElementById("extra1").style.display = "none";
+            document.getElementById("time-input").style.display = "none";
+            document.getElementById("time-switch-container").style.display = "none";
         }
         else {
-            document.getElementById("timer").style.display = "block";
-            document.getElementById("extra1").style.display = "none";
+            document.getElementById("time-input").style.display = "block";
+            document.getElementById("time-switch-container").style.display = "none";
         }
     }
-    document.getElementById("bpmPoly").style.display = "none";
-    document.getElementById("timeSig1").style.display = "none";
-    document.getElementById("timeSig2").style.display = "none";
-    document.getElementById("doispontos").style.display = "none";
+    document.getElementById("polyrhythm-bpm-input").style.display = "none";
+    document.getElementById("first-rhythm-input").style.display = "none";
+    document.getElementById("second-rhythm-input").style.display = "none";
+    document.getElementById("colon").style.display = "none";
     controlBPM = 0;
     controlSlider = 1;
 }
 
-function secondminute() {
+function secondsOrMinutes() {
     if (controlSlider == 1) {
-        document.getElementById("bpm").style.display = "none";
-        document.getElementById("extra2").style.display = "block";
-        document.getElementById("extra").style.display = "block";
+        document.getElementById("bpm-input").style.display = "none";
+        document.getElementById("bpm-slider-text-container").style.display = "block";
+        document.getElementById("bpm-slider-container").style.display = "block";
     }
     else {
-        document.getElementById("bpm").style.display = "block";
-        document.getElementById("extra2").style.display = "none";
-        document.getElementById("extra").style.display = "none";
+        document.getElementById("bpm-input").style.display = "block";
+        document.getElementById("bpm-slider-text-container").style.display = "none";
+        document.getElementById("bpm-slider-container").style.display = "none";
     }
-    document.getElementById("timer").style.display = "block";
-    document.getElementById("extra1").style.display = "block";
-    document.getElementById("bpmPoly").style.display = "none";
-    document.getElementById("timeSig1").style.display = "none";
-    document.getElementById("timeSig2").style.display = "none";
-    document.getElementById("doispontos").style.display = "none";
+    document.getElementById("time-input").style.display = "block";
+    document.getElementById("time-switch-container").style.display = "block";
+    document.getElementById("polyrhythm-bpm-input").style.display = "none";
+    document.getElementById("first-rhythm-input").style.display = "none";
+    document.getElementById("second-rhythm-input").style.display = "none";
+    document.getElementById("colon").style.display = "none";
     controlBPM = 0;
     controlSwitch = 1;
     controlInfinity = 0;
 }
 
-function infinity() {
+function infinityTime() {
     if (controlSlider == 1) {
-        document.getElementById("bpm").style.display = "none";
-        document.getElementById("extra2").style.display = "block";        
-        document.getElementById("extra").style.display = "block";
+        document.getElementById("bpm-input").style.display = "none";
+        document.getElementById("bpm-slider-text-container").style.display = "block";        
+        document.getElementById("bpm-slider-container").style.display = "block";
     }
     else {
-        document.getElementById("bpm").style.display = "block";
-        document.getElementById("extra2").style.display = "none";
-        document.getElementById("extra").style.display = "none";
+        document.getElementById("bpm-input").style.display = "block";
+        document.getElementById("bpm-slider-text-container").style.display = "none";
+        document.getElementById("bpm-slider-container").style.display = "none";
     }
-    document.getElementById("timer").style.display = "none";
-    document.getElementById("extra1").style.display = "none";
-    document.getElementById("bpmPoly").style.display = "none";
-    document.getElementById("timeSig1").style.display = "none";
-    document.getElementById("timeSig2").style.display = "none";
-    document.getElementById("doispontos").style.display = "none";
+    document.getElementById("time-input").style.display = "none";
+    document.getElementById("time-switch-container").style.display = "none";
+    document.getElementById("polyrhythm-bpm-input").style.display = "none";
+    document.getElementById("first-rhythm-input").style.display = "none";
+    document.getElementById("second-rhythm-input").style.display = "none";
+    document.getElementById("colon").style.display = "none";
     controlBPM = 0;
     controlSwitch = 0;
     controlInfinity = 1;
 }
 
-function openPolyrhythm() {
-    document.getElementById("bpm").style.display = "none";
-    document.getElementById("extra2").style.display = "none";
-    document.getElementById("extra").style.display = "none";
-    document.getElementById("timer").style.display = "none";
-    document.getElementById("extra1").style.display = "none";
-    document.getElementById("bpmPoly").style.display = "block";
-    document.getElementById("timeSig1").style.display = "block";
-    document.getElementById("timeSig2").style.display = "block";
-    document.getElementById("doispontos").style.display = "block";
+function polyrhythm() {
+    document.getElementById("bpm-input").style.display = "none";
+    document.getElementById("bpm-slider-text-container").style.display = "none";
+    document.getElementById("bpm-slider-container").style.display = "none";
+    document.getElementById("time-input").style.display = "none";
+    document.getElementById("time-switch-container").style.display = "none";
+    document.getElementById("polyrhythm-bpm-input").style.display = "block";
+    document.getElementById("first-rhythm-input").style.display = "block";
+    document.getElementById("second-rhythm-input").style.display = "block";
+    document.getElementById("colon").style.display = "block";
     controlBPM = 1;
     controlSlider = 0;
     controlSwitch = 0;
