@@ -12,7 +12,7 @@
         <div>
             <button id="open-configurations-button" onclick="openConfigurations()"><i class='fa fa-gear'></i></button>
         </div>
-        <div id="configurations-container">
+        <div id="configurations-container" class="text">
             <div id="items">
                 <a id="restore-defaults-button" onclick="restoreDefaults()">Restaurar Padrões</a>
                 <a onclick="slider()">BPM Slider</a>
@@ -27,22 +27,22 @@
         </div>
         <div id="main-container" onclick="closeConfigurations()">
             <center>
-                <div id="title-container">
+                <div id="title-container" class="text">
                     <text id="title">METRÔNOMO</text>
                 </div>
                 <div id="interface-container">
                     <div class="container">
                         <div class="child">
-                            <input id="bpm-input" placeholder="BPM" title="Batidas por Minuto" onkeypress="clear(event.key)"/>
+                            <input id="bpm-input" class="text input" placeholder="BPM" title="Batidas por Minuto" onkeypress="clear(event.key)"/>
                             <div id="bpm-slider-text-container">
-                                <text id="bpm-slider-text">150</text>
+                                <text id="bpm-slider-text" class="text">150</text>
                             </div>
                             <div id="bpm-slider-container">
                                 <input type="range" min="1" max="300" value="150" id="bpm-slider" oninput="slide()"/>
                             </div>
                         </div>
                         <div class="child">
-                            <input id="time-input" placeholder="Tempo" title="Segundos"/>
+                            <input id="time-input" class="text input" placeholder="Tempo" title="Segundos"/>
                             <div id="time-switch-container">
                                 <label id="time-switch-label">
                                     <input id="time-switch" type="checkbox">
@@ -53,16 +53,16 @@
                     </div>
                     <div class="container">
                         <div class="child">
-                            <input id="polyrhythm-bpm-input" placeholder="BPM" title="Batidas por Minuto"/>
+                            <input id="polyrhythm-bpm-input" class="text input" placeholder="BPM" title="Batidas por Minuto"/>
                         </div>
                         <div class="child">
-                            <input id="first-rhythm-input" class="rhythm-input" placeholder="Rtm 1" title="Primeiro Ritmo"/>
+                            <input id="first-rhythm-input" class="text input rhythm-input" placeholder="Rtm 1" title="Primeiro Ritmo"/>
                         </div>
                         <div class="child">
-                            <text id="colon">:</text>
+                            <text id="colon" class="text">:</text>
                         </div>
                         <div class="child">
-                            <input id="second-rhythm-input" class="rhythm-input" placeholder="Rtm 2" title="Segundo Ritmo"/>
+                            <input id="second-rhythm-input" class="text input rhythm-input" placeholder="Rtm 2" title="Segundo Ritmo"/>
                         </div>
                     </div>
                 </div>
