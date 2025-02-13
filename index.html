@@ -17,7 +17,7 @@
                 <a id="restore-defaults-button" onclick="restoreDefaults()">Restaurar Padrões</a>
                 <a onclick="slider()">BPM Slider</a>
                 <a id="seconds-or-minutes-button" onclick="secondsOrMinutes()">Segundos ou Minutos</a>
-                <a id="infinity-time-button" onclick="infinityTime()">Tempo Infinito</a>
+                <a id="infinite-time-button" onclick="infiniteTime()">Tempo Infinito</a>
                 <a id="polyrhythm-button" onclick="polyrhythm()">Polirritmia</a>
                 <a onclick="english()">English Version</a>
             </div>
@@ -46,7 +46,7 @@
                             <div id="time-switch-container">
                                 <label id="time-switch-label">
                                     <input id="time-switch" type="checkbox">
-                                    <span id="seconds-or-minutes-span" class="span round" title="Segundos/Minutos"></span>
+                                    <span id="seconds-or-minutes-span" onclick="changeTimeInputTitle()" class="span round" title="Segundos/Minutos"></span>
                                 </label>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                 </div>
                 <div id="buttons-container" onclick="closeConfigurations()">
                     <button id="start-button" onclick="start()" title="Tocar"></button>
-                    <button id="pause-button" onclick="pause()" title="Pausar"><i style="font-size: 70px" class="fa">&#xf04c;</i></button>
+                    <button id="pause-button" onclick="pause(true)" title="Pausar"><i style="font-size: 70px" class="fa">&#xf04c;</i></button>
                 </div>
             </center>
         </div>
