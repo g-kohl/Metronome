@@ -39,24 +39,27 @@ function start() {
     if (isPolyrhythmMode) {
         let firstRhythm = bpm / (document.getElementById("first-rhythm-input").value);
         let secondRhythm = bpm / (document.getElementById("second-rhythm-input").value);
-        firstRhythmInterval = setInterval(() => tocar(startTime), firstRhythm);
-        secondRhythmInterval = setInterval(() => tocar(startTime), secondRhythm);
+        firstRhythmInterval = setInterval(() => play(startTime), firstRhythm);
+        secondRhythmInterval = setInterval(() => play(startTime), secondRhythm);
     }
     else
-        firstRhythmInterval = setInterval(() => tocar(startTime), bpm);
+        firstRhythmInterval = setInterval(() => play(startTime), bpm);
 }
 
-function tocar(startTime) {
-    if (!isInfiniteTimeMode) {
-        let currentTime = computeTotalTime(new Date());
-
-        if ((currentTime <= (parseInt(startTime) + parseInt(getTimeInput()))) && !shouldPause)
-            beep.play();
-        else
-            pause(true);
-    }
-    else if (!shouldPause)
+function play(startTime) {
+    if (!shouldPause && (isInfiniteTimeMode || !timerEnded(startTime)))
         beep.play();
+    else
+        pause(true);
+}
+
+function timerEnded(startTime){
+    let currentTime = computeTotalTime(new Date());
+
+    if (currentTime <= (parseInt(startTime) + parseInt(getTimeInput())))
+        return false;
+
+    return true;
 }
 
 function pause(isPausing) {
@@ -92,27 +95,27 @@ function closeConfigurations() {
     if (shouldOpenConfigurations) {
         document.getElementById("configurations-container").style.width = "0px";
         document.getElementById("main-container").style.marginLeft = "0";
-        document.getElementById("items").style.opacity = "0"
-        document.getElementById("items").style.marginLeft = "-100px"
+        document.getElementById("items").style.opacity = "0";
+        document.getElementById("items").style.marginLeft = "-100px";
         shouldOpenConfigurations = false;
     }
 }
 
 function english() {
-    document.title = "Online Metronome"
-    document.getElementById("restore-defaults-button").innerHTML = "Restore Configurations"
-    document.getElementById("seconds-or-minutes-button").innerHTML = "Seconds or Minutes"
-    document.getElementById("infinite-time-button").innerHTML = "Infinite Time"
-    document.getElementById("polyrhythm-button").innerHTML = "Polyrhythm"
-    document.getElementById("title").innerHTML = "METRONOME"
-    document.getElementById("time-input").placeholder = "Time"
-    document.getElementById("seconds-or-minutes-span").title = "Seconds/Minutes"
-    document.getElementById("start-button").title = "Play"
-    document.getElementById("pause-button").title = "Stop"
-    document.getElementById("bpm-input").title = "Beats per Minute"
-    document.getElementById("polyrhythm-bpm-input").title = "Beats per Minute"
-    document.getElementById("first-rhythm-input").title = "Subdivision 1"
-    document.getElementById("second-rhythm-input").title = "Subdivision 2"
+    document.title = "Online Metronome";
+    document.getElementById("restore-defaults-button").innerHTML = "Restore Configurations";
+    document.getElementById("seconds-or-minutes-button").innerHTML = "Seconds or Minutes";
+    document.getElementById("infinite-time-button").innerHTML = "Infinite Time";
+    document.getElementById("polyrhythm-button").innerHTML = "Polyrhythm";
+    document.getElementById("title").innerHTML = "METRONOME";
+    document.getElementById("time-input").placeholder = "Time";
+    document.getElementById("seconds-or-minutes-span").title = "Seconds/Minutes";
+    document.getElementById("start-button").title = "Play";
+    document.getElementById("pause-button").title = "Stop";
+    document.getElementById("bpm-input").title = "Beats per Minute";
+    document.getElementById("polyrhythm-bpm-input").title = "Beats per Minute";
+    document.getElementById("first-rhythm-input").title = "Subdivision 1";
+    document.getElementById("second-rhythm-input").title = "Subdivision 2";
 
     if (document.getElementById("time-switch").checked == true)
         document.getElementById("time-input").title = "Minutes";
