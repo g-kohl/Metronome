@@ -8,6 +8,7 @@ let shouldPause = false;
 let firstRhythmInterval
 let secondRhythmInterval
 let beep = new Audio("beep.wav");
+let inputErrorMessage = "Input Inválido"
 
 function getBpmInput() {
     if (isPolyrhythmMode)
@@ -30,6 +31,11 @@ function computeTotalTime(time) {
 }
 
 function start() {
+    if (isInputInvalid()){
+        window.alert(inputErrorMessage);
+        return;
+    }
+
     pause(false);
     clearInterval(firstRhythmInterval);
     clearInterval(secondRhythmInterval);
@@ -44,6 +50,24 @@ function start() {
     }
     else
         firstRhythmInterval = setInterval(() => play(startTime), bpm);
+}
+
+function isInputInvalid() {
+    if (isPolyrhythmMode && (
+        isNaN(document.getElementById("polyrhythm-bpm-input").value) || document.getElementById("polyrhythm-bpm-input").value == "" ||
+        isNaN(document.getElementById("first-rhythm-input").value) || document.getElementById("first-rhythm-input").value == "" ||
+        isNaN(document.getElementById("second-rhythm-input").value) || document.getElementById("second-rhythm-input").value == ""))
+        return true;
+
+    if (!isPolyrhythmMode && !isInfiniteTimeMode && (
+        isNaN(document.getElementById("time-input").value) || document.getElementById("time-input").value == ""))
+        return true;
+
+    if (!isPolyrhythmMode && !isSliderMode && (
+        isNaN(document.getElementById("bpm-input").value) || document.getElementById("bpm-input").value == ""))
+        return true;
+
+    return false;
 }
 
 function play(startTime) {
@@ -116,6 +140,7 @@ function english() {
     document.getElementById("polyrhythm-bpm-input").title = "Beats per Minute";
     document.getElementById("first-rhythm-input").title = "Subdivision 1";
     document.getElementById("second-rhythm-input").title = "Subdivision 2";
+    inputErrorMessage = "Invalid Input"
 
     if (document.getElementById("time-switch").checked == true)
         document.getElementById("time-input").title = "Minutes";
